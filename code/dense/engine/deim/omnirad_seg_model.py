@@ -15,7 +15,7 @@ from engine.deim.radio_dino_seg_model import RadioDinoSTAs
 from engine.deim.hybrid_encoder import HybridEncoder
 
 
-class RadioDinoHybridSegModel(nn.Module):
+class OmniRadHybridSegModel(nn.Module):
 	"""Modello completo per segmentazione con RadioDino + HybridEncoder + U-Net head.
 	
 	Architettura (come DEIMv2):
