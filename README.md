@@ -8,7 +8,7 @@
 
 </div>
 <div align="center">
-<img src="res/logo.png" alt="OmniRad Logo" width="60%">
+<img src="res/logo.png" alt="OmniRad Logo" width="80%">
 </div>
 
 ## 🔍 Overview
