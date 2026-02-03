@@ -5,12 +5,10 @@
 **A Unified Framework for Medical Image Analysis**
 
 *Classification • Dense Prediction (Segmentation) • Captioning*
-
 </div>
 <div align="center">
 <img src="res/logo.png" alt="OmniRad Logo" width="65%">
 </div>
-
 ## 🔍 Overview
 
 **OmniRad** is a comprehensive framework for medical image analysis that supports three main tasks:
