@@ -9,6 +9,7 @@
 <div align="center">
 <img src="res/logo.png" alt="OmniRad Logo" width="65%">
 </div>
+
 ## 🔍 Overview
 
 **OmniRad** is a comprehensive framework for medical image analysis that supports three main tasks:
