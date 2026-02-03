@@ -7,7 +7,9 @@
 *Classification • Dense Prediction (Segmentation) • Captioning*
 
 </div>
-
+<div align="center">
+<img src="res/logo.png" alt="OmniRad Logo" width="60%">
+</div>
 
 ## 🔍 Overview
 
