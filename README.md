@@ -98,24 +98,6 @@ python train.py \
     --lora_dropout 0.1
 ```
 
-#### Classification Arguments
-
-| Argument | Default | Description |
-|----------|---------|-------------|
-| `--model` | `hf_hub:Snarcy/RadioDino-s16` | Model name (timm-compatible) |
-| `--epochs` | 40 | Number of training epochs |
-| `--batch_size` | 128 | Batch size |
-| `--lr` | 1e-5 | Learning rate |
-| `--warmup_epochs` | 10 | Warmup epochs |
-| `--dropout` | 0.4 | Dropout rate |
-| `--use_lora` | False | Enable LoRA adapters |
-| `--lora_r` | 16 | LoRA rank |
-| `--lora_alpha` | 32 | LoRA alpha |
-| `--use_amp` | True | Automatic mixed precision |
-| `--gradient_clip` | 1.0 | Gradient clipping value |
-| `--patience` | 10000 | Early stopping patience |
-| `--cutmix` | False | Use CutMix augmentation |
-| `--mixup` | False | Use MixUp augmentation |
 
 #### Batch Training (Multiple Models/Datasets)
 
