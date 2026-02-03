@@ -1,0 +1,68 @@
+# Segmentation config using RadioDino + HybridEncoder (come DEIMv2).
+# Versione potenziata con lo stesso encoder usato da DEIMv2 DINOv3STAs.
+
+root: 'path_to_dense_root'  # Cambia con il path alla root di Dense
+
+# Lista di modelli da testare (commenta 'models' per usare solo 'model_name')
+models:
+  - 'hf_hub:Snarcy/tbd_b'
+  - 'hf_hub:Snarcy/RadioDino-b16'
+  - 'vit_base_patch16_dinov3_qkvb.lvd1689m'
+  - 'vit_base_patch14_dinov2'
+  - 'vit_base_patch16_224'
+  - 'vit_base_patch16_224.dino'
+  - 'vit_base_patch16_clip_224.laion2b'
+  - 'vit_base_patch16_224.mae'
+
+freeze_backbone: true  # Congela il backbone (ViT), addestra solo STA, HybridEncoder, decoder
+
+
+# Input size (deve essere divisibile per patch_size=14)
+image_size: [448, 448]
+
+
+# Stessi iperparametri di DEIMv2
+epochs: 20
+batch_size: 16
+workers: 2
+lr: 0.0001
+use_amp: true  # Automatic Mixed Precision (fp16)
+
+output_dir: './outputs/medseg_benchmark_base_3'
+
+# --- STA config ---
+use_sta: true
+conv_inplane: 16
+hidden_dim: 768  # embed_dim del ViT
+out_indices: [3, 7, 11]
+
+# --- HybridEncoder config (stile DEIMv2 DINOv3STAs) ---
+use_hybrid_encoder: true
+use_sync_bn: true  # Come DINOv3STAs
+
+HybridEncoder:
+  in_channels: [768, 768, 768]  # corrispondente a DINOv2 Base
+  feat_strides: [8, 16, 32]
+  hidden_dim: 768
+  dim_feedforward: 1536
+  expansion: 0.67
+  depth_mult: 1.00
+  use_encoder_idx: [2]
+  num_encoder_layers: 1
+  nhead: 6
+  dropout: 0.0
+  enc_act: 'gelu'
+  act: 'silu'
+  version: 'deim'
+  csp_type: 'csp2'
+  fuse_op: 'sum'
+
+datasets:
+  - BusiMSBench
+  - CovidQUExMSBench
+  - FHPsAOPMSBench
+  - MosMedPlusMSBench
+  - PandentalMSBench
+  - Promise12MSBench
+  - UltrasoundNerveMSBench
+  - USforKidneyMSBench
